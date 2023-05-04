@@ -88,7 +88,7 @@ namespace CalculatorApp
             return new Matrix<T>(result);
         }
 
-        public static Matrix<T> operator *(Matrix<T> a, Matrix<T> b)
+        /*public static Matrix<T> operator *(Matrix<T> a, Matrix<T> b)
         {
             if (a.matrix.GetLength(1) != b.matrix.GetLength(0))
             {
@@ -115,5 +115,6 @@ namespace CalculatorApp
 
             return new Matrix<T>(result);
         }
+        */
     }
 }
