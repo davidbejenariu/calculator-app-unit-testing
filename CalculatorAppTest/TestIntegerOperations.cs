@@ -1,12 +1,13 @@
 using CalculatorApp;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CalculatorTest
+namespace CalculatorAppTest
 {
     [TestClass]
     public class TestIntegerOperations
     {
         public Calculator<int> calculator = new Calculator<int>();
-        
+
         [TestMethod]
         public void TestAddition()
         {
