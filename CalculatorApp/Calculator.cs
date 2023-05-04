@@ -1,4 +1,6 @@
-﻿namespace CalculatorApp
+﻿using System;
+
+namespace CalculatorApp
 {
     public class Calculator<T>
     {
@@ -30,6 +32,11 @@
         {
             dynamic dx = x;
             dynamic dy = y;
+
+            if(dy == 0)
+            {
+                throw new ArithmeticException("Attempted to divide by 0");
+            }
 
             return dx / dy;
         }
