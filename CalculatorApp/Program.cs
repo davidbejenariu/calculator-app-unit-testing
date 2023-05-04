@@ -57,6 +57,30 @@ namespace CalculatorApp
                 if (opCode == 1)
                 {
                     AdditionHandler.Handle();
+                    continue;
+                }
+
+                if (opCode == 2)
+                {
+                    SubtractionHandler.Handle();
+                    continue;
+                }
+
+                if (opCode == 3)
+                {
+                    MultiplicationHandler.Handle();
+                    continue;
+                }
+
+                if (opCode == 4)
+                {
+                    DivisionHandler.Handle();
+                    continue;
+                }
+
+                if (opCode == 5)
+                {
+                    QuadraticEquationHandler.Handle();
                 }
 
             }
