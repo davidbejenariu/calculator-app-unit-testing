@@ -37,6 +37,33 @@ namespace CalculatorAppTest
         }
 
         [TestMethod]
+        public void SubtractSameDimensionMatrices()
+        {
+            // Arrange
+            Matrix<float> a = new Matrix<float>(new float[2, 2] { { 3, 3 }, { 1, 1 } });
+            Matrix<float> b = new Matrix<float>(new float[2, 2] { { 2, 2 }, { 2, 2 } });
+
+            // Act
+            var result = calculator.Subtract(a, b);
+
+            // Assert
+            Assert.AreEqual(new Matrix<float>(new float[2, 2] { { 1, 1 }, { -1, -1 } }), result);
+        }
+
+        [TestMethod]
+        public void SubtractDifferentDimensionMatrices()
+        {
+            // Arrange
+            Matrix<float> a = new Matrix<float>(new float[2, 2] { { 1, 1 }, { 1, 1 } });
+            Matrix<float> b = new Matrix<float>(new float[2, 3] { { 2, 2, 2 }, { 2, 2, 2 } });
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentException>(
+                () => calculator.Subtract(a, b), "Matrices don't have the same dimension."
+            );
+        }
+
+        [TestMethod]
         public void MultiplyAppropriateMatrices()
         {
             // Arrange

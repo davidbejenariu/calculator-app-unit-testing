@@ -59,7 +59,7 @@ namespace CalculatorApp.OperationHandlers
             
             try
             {
-                (resultA, resultB) = calculator.QuadraticEquationSolver(A, B, C);
+                (resultA, resultB) = calculator.SolveQuadraticEquation(A, B, C);
             }
             catch(Exception e)
             {
