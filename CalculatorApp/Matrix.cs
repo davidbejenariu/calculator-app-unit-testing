@@ -88,9 +88,9 @@ namespace CalculatorApp
             return new Matrix<T>(result);
         }
 
-        public static Matrix<T> operator *(Matrix<T> a, Matrix<T> b)
-        {
+        //public static Matrix<T> operator *(Matrix<T> a, Matrix<T> b)
+        //{
 
-        }
+        //}
     }
 }

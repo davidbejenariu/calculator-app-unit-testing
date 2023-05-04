@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace CalculatorApp.OperationHandlers
             while (!numbersParsed)
             {
                 Console.WriteLine();
-                Console.WriteLine("Please enter the numbers you want to add, separated by one or more spaces:");
+                Console.WriteLine("Please enter the numbers you want to add, separated by one space:");
                 string input = Console.ReadLine();
 
                 string[] inputSplit = input.Split(" ");
@@ -27,14 +28,14 @@ namespace CalculatorApp.OperationHandlers
                     continue;
                 }
 
-                if(Single.TryParse(inputSplit[0], out A)) { }
+                if(Single.TryParse(inputSplit[0], NumberStyles.Float, CultureInfo.InvariantCulture, out A)) { }
                 else
                 {
                     Console.WriteLine("Numbers could not be parsed!");
                     continue;
                 }
 
-                if (Single.TryParse(inputSplit[1], out B)) { }
+                if (Single.TryParse(inputSplit[1], NumberStyles.Float, CultureInfo.InvariantCulture, out B)) { }
                 else
                 {
                     Console.WriteLine("Numbers could not be parsed!");
@@ -48,7 +49,7 @@ namespace CalculatorApp.OperationHandlers
 
             float result = calculator.Add(A, B);
 
-            Console.WriteLine("The result is: " + result.ToString());
+            Console.WriteLine("The result is: " + result.ToString(CultureInfo.InvariantCulture));
         }
     }
 }
