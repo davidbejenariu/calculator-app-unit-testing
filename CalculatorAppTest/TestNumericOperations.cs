@@ -5,16 +5,14 @@ using System;
 namespace CalculatorAppTest
 {
     [TestClass]
-    public class TestIntegerOperations
+    public class TestNumericOperations
     {
         public Calculator<float> calculator = new Calculator<float>();
 
         [TestMethod]
         public void TestAddition()
         {
-            // Arrange
-
-            // ActS
+            // Acts
             float result = calculator.Add(2.0f, 3.0f);
 
             // Assert
@@ -49,7 +47,7 @@ namespace CalculatorAppTest
         [TestMethod]
         public void TestQuadraticEquationSolverNoSolution()
         {
-            // Test a case where there is only one real solution
+            // Test a case where there is no real solution
             float a = 1.0f;
             float b = 1.0f;
             float c = 1.0f;
