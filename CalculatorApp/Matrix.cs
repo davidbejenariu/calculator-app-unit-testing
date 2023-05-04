@@ -90,7 +90,30 @@ namespace CalculatorApp
 
         /*public static Matrix<T> operator *(Matrix<T> a, Matrix<T> b)
         {
+            if (a.matrix.GetLength(1) != b.matrix.GetLength(0))
+            {
+                throw new ArgumentException("Matrices cannot be multiplied.");
+            }
 
+            int n = a.matrix.GetLength(0);
+            int p = a.matrix.GetLength(1);
+            int m = b.matrix.GetLength(1);
+            T[,] result = new T[n, m];
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    result[i, j] = (dynamic)0;
+
+                    for (int k = 0; k < p; k++)
+                    {
+                        result[i, j] += (dynamic)a.matrix[i, k] * b.matrix[k, j];
+                    }
+                }
+            }
+
+            return new Matrix<T>(result);
         }
         */
     }
