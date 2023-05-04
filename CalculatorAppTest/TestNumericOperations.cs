@@ -5,20 +5,48 @@ using System;
 namespace CalculatorAppTest
 {
     [TestClass]
-    public class TestIntegerOperations
+    public class TestNumericOperations
     {
         public Calculator<float> calculator = new Calculator<float>();
 
         [TestMethod]
         public void TestAddition()
         {
-            // Arrange
-
-            // ActS
+            // Acts
             float result = calculator.Add(2.0f, 3.0f);
 
             // Assert
             Assert.AreEqual(5.0f, result);
+        }
+
+        [TestMethod]
+        public void TestSubstraction()
+        {
+            // Acts
+            float result = calculator.Subtract(20.0f, 5.5f);
+
+            // Assert
+            Assert.AreEqual(14.5f, result);
+        }
+
+        [TestMethod]
+        public void TestMultiplication()
+        {
+            // Acts
+            float result = calculator.Multiply(2.0f, 6.5f);
+
+            // Assert
+            Assert.AreEqual(13.0f, result);
+        }
+
+        [TestMethod]
+        public void TestDivision()
+        {
+            // Acts
+            float result = calculator.Divide(40.0f, 20.0f);
+
+            // Assert
+            Assert.AreEqual(2.0f, result);
         }
 
         [TestMethod]
