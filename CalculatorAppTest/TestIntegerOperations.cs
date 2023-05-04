@@ -55,7 +55,5 @@ namespace CalculatorAppTest
             float c = 1.0f;
             Assert.ThrowsException<InvalidOperationException>(() => calculator.QuadraticEquationSolver((float)a, (float)b, (float)c), "Expected InvalidOperationException not thrown for a quadratic equation with no real solutions.");
         }
-
-        
     }
 }
