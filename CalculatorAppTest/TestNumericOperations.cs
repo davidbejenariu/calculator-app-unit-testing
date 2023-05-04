@@ -12,7 +12,7 @@ namespace CalculatorAppTest
         [TestMethod]
         public void TestAddition()
         {
-            // Acts
+            // Act
             float result = calculator.Add(2.0f, 3.0f);
 
             // Assert
@@ -22,7 +22,7 @@ namespace CalculatorAppTest
         [TestMethod]
         public void TestSubstraction()
         {
-            // Acts
+            // Act
             float result = calculator.Subtract(20.0f, 5.5f);
 
             // Assert
@@ -32,7 +32,7 @@ namespace CalculatorAppTest
         [TestMethod]
         public void TestMultiplication()
         {
-            // Acts
+            // Act
             float result = calculator.Multiply(2.0f, 6.5f);
 
             // Assert
@@ -42,7 +42,7 @@ namespace CalculatorAppTest
         [TestMethod]
         public void TestDivision()
         {
-            // Acts
+            // Act
             float result = calculator.Divide(40.0f, 20.0f);
 
             // Assert
@@ -50,38 +50,50 @@ namespace CalculatorAppTest
         }
 
         [TestMethod]
+        // Test a case where there are two real solutions
         public void TestQuadraticEquationSolverTwoSolution()
         {
-            // Test a case where there are two real solutions
-
+            // Arrange
             float a = 2.0f;
             float b = -5.0f;
             float c = 2.0f;
+
+            // Act
             var expected = (2.0f / 1.0f, 1.0f / 2.0f);
-            var actual = calculator.QuadraticEquationSolver((float)a, (float)b, (float)c);
+            var actual = calculator.SolveQuadraticEquation((float)a, (float)b, (float)c);
+
+            // Assert
             Assert.AreEqual(expected, actual, "Unexpected solution for a quadratic equation with two real solutions.");   
         }
 
         [TestMethod]
+        // Test a case where there is only one real solution
         public void TestQuadraticEquationSolverOneSolution()
         {
-            // Test a case where there is only one real solution
+            // Arrange
             float a = 1.0f;
             float b = -6.0f;
             float c = 9.0f;
+
+            // Act
             var expected = (3.0f, 3.0f);
-            var actual = calculator.QuadraticEquationSolver((float)a, (float)b, (float)c);
+            var actual = calculator.SolveQuadraticEquation((float)a, (float)b, (float)c);
+
+            // Assert
             Assert.AreEqual(expected, actual, "Unexpected solution for a quadratic equation with one real solution.");
         }
 
         [TestMethod]
+        // Test a case where there is no real solution
         public void TestQuadraticEquationSolverNoSolution()
         {
-            // Test a case where there is no real solution
+            // Arrange
             float a = 1.0f;
             float b = 1.0f;
             float c = 1.0f;
-            Assert.ThrowsException<InvalidOperationException>(() => calculator.QuadraticEquationSolver((float)a, (float)b, (float)c), "Expected InvalidOperationException not thrown for a quadratic equation with no real solutions.");
+
+            // Act & Assert
+            Assert.ThrowsException<InvalidOperationException>(() => calculator.SolveQuadraticEquation((float)a, (float)b, (float)c), "Expected InvalidOperationException not thrown for a quadratic equation with no real solutions.");
         }
     }
 }

@@ -88,6 +88,28 @@ namespace CalculatorApp
             return new Matrix<T>(result);
         }
 
+        public static Matrix<T> operator -(Matrix<T> a, Matrix<T> b)
+        {
+            if (a.matrix.GetLength(0) != b.matrix.GetLength(0) || a.matrix.GetLength(1) != b.matrix.GetLength(1))
+            {
+                throw new ArgumentException("Matrices don't have the same dimension.");
+            }
+
+            int n = a.matrix.GetLength(0);
+            int m = a.matrix.GetLength(1);
+            T[,] result = new T[n, m];
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    result[i, j] = (dynamic)a.matrix[i, j] - b.matrix[i, j];
+                }
+            }
+
+            return new Matrix<T>(result);
+        }
+
         public static Matrix<T> operator *(Matrix<T> a, Matrix<T> b)
         {
             if (a.matrix.GetLength(1) != b.matrix.GetLength(0))

@@ -36,7 +36,7 @@ namespace CalculatorApp
             return dx / dy;
         }
 
-        public (T, T) QuadraticEquationSolver(T a, T b, T c)
+        public (T, T) SolveQuadraticEquation(T a, T b, T c)
         {
             dynamic da = a;
             dynamic db = b;
