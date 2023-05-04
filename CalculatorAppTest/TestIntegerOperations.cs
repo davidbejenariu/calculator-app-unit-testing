@@ -11,8 +11,6 @@ namespace CalculatorAppTest
         [TestMethod]
         public void TestAddition()
         {
-            // Arrange
-
             // Act
             float result = calculator.Add(2, 3);
 
